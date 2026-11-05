@@ -36,29 +36,26 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    
-    // Firebase SDK Integration
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    <!-- Firebase SDK Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    
-   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCVkq7N2igeJKSekH3nwCtRqhRo4nulTmg",
-  authDomain: "prism-events-b4971.firebaseapp.com",
-  projectId: "prism-events-b4971",
-  storageBucket: "prism-events-b4971.firebasestorage.app",
-  messagingSenderId: "306551336202",
-  appId: "1:306551336202:web:4c497957e0eaa66df79ef3",
-  measurementId: "G-Z4RFMSF2Z3"
-};
+        const firebaseConfig = {
+          apiKey: "AIzaSyCVkq7N2igeJKSekH3nwCtRqhRo4nulTmg",
+          authDomain: "prism-events-b4971.firebaseapp.com",
+          projectId: "prism-events-b4971",
+          storageBucket: "prism-events-b4971.firebasestorage.app",
+          messagingSenderId: "306551336202",
+          appId: "1:306551336202:web:4c497957e0eaa66df79ef3",
+          measurementId: "G-Z4RFMSF2Z3"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    window.db = db;
-    window.dbFns = { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot };
-</script>
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        window.db = db;
+        window.dbFns = { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot };
+    </script>
 
     <style>
         body {
@@ -94,7 +91,6 @@ const firebaseConfig = {
             background: #111827;
             border-radius: calc(1rem - 1px);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -134,7 +130,6 @@ const firebaseConfig = {
     <!-- Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
             <a href="#" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 rounded-xl bg-prism-glow flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
                     <i class="fa-solid fa-prism text-white text-lg"></i>
@@ -145,7 +140,6 @@ const firebaseConfig = {
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#events" class="text-gray-300 hover:text-pink-400 transition-colors">Events</a>
                 <a href="#countdown" class="text-gray-300 hover:text-purple-400 transition-colors">Next Big Event</a>
@@ -153,7 +147,6 @@ const firebaseConfig = {
                 <a href="#contact" class="text-gray-300 hover:text-pink-400 transition-colors">Join Club</a>
             </nav>
 
-            <!-- Action Buttons -->
             <div class="flex items-center space-x-4">
                 <button onclick="openAdminModal()" class="relative group overflow-hidden px-4 py-2 rounded-xl bg-gray-800/80 border border-gray-700 hover:border-purple-500 text-sm font-semibold transition-all shadow-sm">
                     <span class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -162,14 +155,12 @@ const firebaseConfig = {
                 <a href="#events" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-prism-glow text-white font-semibold text-sm shadow-lg shadow-purple-600/30 hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition-all">
                     Explore Events
                 </a>
-                <!-- Mobile Menu Button -->
                 <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-gray-800/80 text-gray-300 hover:text-white">
                     <i class="fa-solid fa-bars text-lg" id="mobile-menu-icon"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-gray-800 px-6 py-4 space-y-3">
             <a href="#events" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pink-400 py-1 font-medium">Events</a>
             <a href="#countdown" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-purple-400 py-1 font-medium">Next Big Event</a>
@@ -178,9 +169,7 @@ const firebaseConfig = {
         </div>
     </header>
 
-    <!-- Main Content Container -->
     <main class="flex-grow pt-20">
-
         <!-- Hero Section -->
         <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
@@ -211,7 +200,6 @@ const firebaseConfig = {
                     </a>
                 </div>
 
-                <!-- Quick Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-gray-800/80">
                     <div class="glass-panel p-4 rounded-2xl text-center">
                         <div class="text-2xl sm:text-3xl font-black gradient-text">25+</div>
@@ -248,7 +236,6 @@ const firebaseConfig = {
                             </div>
                         </div>
 
-                        <!-- Timer Box -->
                         <div class="lg:col-span-6 flex items-center justify-center">
                             <div class="grid grid-cols-4 gap-3 sm:gap-4 w-full max-w-md">
                                 <div class="glass-panel p-4 rounded-2xl text-center border border-blue-500/20 shadow-lg">
@@ -281,7 +268,6 @@ const firebaseConfig = {
                     <span class="text-pink-400 font-semibold text-xs tracking-widest uppercase mb-2 block">Campus Calendar</span>
                     <h2 class="text-3xl sm:text-5xl font-black tracking-tight">Upcoming Events</h2>
                 </div>
-                <!-- Category Filters -->
                 <div class="flex flex-wrap items-center gap-2 mt-6 md:mt-0" id="filter-container">
                     <button onclick="filterEvents('all')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-prism-glow text-white shadow-md transition-all" data-category="all">All Events</button>
                     <button onclick="filterEvents('Workshops')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold glass-panel text-gray-300 hover:text-white transition-all" data-category="Workshops">Workshops</button>
@@ -291,12 +277,8 @@ const firebaseConfig = {
                 </div>
             </div>
 
-            <!-- Events Grid -->
-            <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Dynamic cards populated via JavaScript -->
-            </div>
+            <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             
-            <!-- Empty State for filters -->
             <div id="no-events" class="hidden text-center py-16">
                 <i class="fa-solid fa-calendar-xmark text-5xl text-gray-600 mb-4"></i>
                 <h3 class="text-xl font-bold text-gray-300">No events found in this category</h3>
@@ -313,7 +295,6 @@ const firebaseConfig = {
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Member 1 -->
                 <div class="glass-panel p-6 rounded-2xl text-center group hover:border-blue-500/50 transition-all">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1 mb-4 group-hover:scale-105 transition-transform">
                         <img src="https://placehold.co/200x200/111827/60a5fa?text=Ghofrane" alt="Ghofrane Belkacem" class="w-full h-full object-cover rounded-xl">
@@ -323,7 +304,6 @@ const firebaseConfig = {
                     <p class="text-xs text-gray-400 mt-3">Creative beyond imagination.</p>
                 </div>
 
-                <!-- Member 2 -->
                 <div class="glass-panel p-6 rounded-2xl text-center group hover:border-purple-500/50 transition-all">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 p-1 mb-4 group-hover:scale-105 transition-transform">
                         <img src="https://placehold.co/200x200/111827/c084fc?text=Oumaima" alt="Oumaima Hammemi" class="w-full h-full object-cover rounded-xl">
@@ -372,7 +352,6 @@ const firebaseConfig = {
                 </form>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -466,14 +445,12 @@ const firebaseConfig = {
                 </button>
             </div>
 
-            <!-- Tabs in Admin -->
             <div class="flex space-x-2 mb-6 border-b border-gray-800 pb-4">
                 <button onclick="switchAdminTab('events')" id="tab-events-btn" class="px-4 py-2 rounded-xl text-sm font-bold bg-purple-600 text-white transition-all">Manage Events</button>
                 <button onclick="switchAdminTab('create')" id="tab-create-btn" class="px-4 py-2 rounded-xl text-sm font-bold bg-gray-800 text-gray-300 hover:text-white transition-all">Post New Event</button>
                 <button onclick="switchAdminTab('rsvps')" id="tab-rsvps-btn" class="px-4 py-2 rounded-xl text-sm font-bold bg-gray-800 text-gray-300 hover:text-white transition-all">Student RSVPs</button>
             </div>
 
-            <!-- Tab 1: Manage Events List -->
             <div id="admin-tab-events" class="space-y-4">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-base font-bold text-gray-200">Posted Events</h3>
@@ -482,7 +459,6 @@ const firebaseConfig = {
                 <div id="admin-events-list" class="space-y-3"></div>
             </div>
 
-            <!-- Tab 2: Create / Edit Event Form -->
             <div id="admin-tab-create" class="hidden">
                 <form id="admin-event-form" onsubmit="handleSaveEvent(event)" class="space-y-4">
                     <input type="hidden" id="edit-event-index" value="">
@@ -534,7 +510,6 @@ const firebaseConfig = {
                 </form>
             </div>
 
-            <!-- Tab 3: Student RSVPs Management -->
             <div id="admin-tab-rsvps" class="hidden space-y-4">
                 <h3 class="text-base font-bold text-gray-200">Registered RSVPs</h3>
                 <div id="admin-rsvps-list" class="space-y-3"></div>
@@ -542,10 +517,9 @@ const firebaseConfig = {
         </div>
     </div>
 
-    <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3 pointer-events-none"></div>
 
-    <!-- JavaScript Application Logic with Firebase Real-time Sync -->
+    <!-- JavaScript Application Logic -->
     <script>
         let events = [];
         let rsvpsList = [];
@@ -555,7 +529,6 @@ const firebaseConfig = {
             if (window.db && window.dbFns) {
                 const { collection, onSnapshot } = window.dbFns;
                 
-                // Real-time listener for events
                 onSnapshot(collection(window.db, "events"), (snapshot) => {
                     events = [];
                     snapshot.forEach((docSnap) => {
@@ -569,7 +542,6 @@ const firebaseConfig = {
                     }
                 });
 
-                // Real-time listener for RSVPs
                 onSnapshot(collection(window.db, "rsvps"), (snapshot) => {
                     rsvpsList = [];
                     snapshot.forEach((docSnap) => {
@@ -578,7 +550,6 @@ const firebaseConfig = {
                     renderAdminRsvps();
                 });
             } else {
-                // Fallback state if Firebase keys are not filled in yet
                 events = [
                     { id: 'ev-1', title: 'PRISM Nexus Hackathon 2026', category: 'Competitions', date: 'May 15, 2026', time: '9:00 AM - 48 Hours', location: 'Student Union Grand Hall', image: 'https://placehold.co/600x400/111827/3b82f6?text=Hackathon', description: '48 hours of coding and $5,000 in grand prizes.', rsvps: 142 },
                     { id: 'ev-2', title: 'UI/UX Design & Figma Bootcamp', category: 'Workshops', date: 'May 22, 2026', time: '3:00 PM - 5:30 PM', location: 'Design Studio B', image: 'https://placehold.co/600x400/111827/9333ea?text=Figma', description: 'Master interface design systems.', rsvps: 85 }
@@ -838,15 +809,16 @@ const firebaseConfig = {
         }
 
         async function deleteEvent(id) {
-    if (confirm('Delete this event?')) {
-        if (window.db && window.dbFns) {
-            try {
-                const { doc, deleteDoc } = window.dbFns;
-                await deleteDoc(doc(window.db, "events", id));
-                showToast('Event deleted.');
-            } catch (error) {
-                console.error("Error deleting event: ", error);
-                showToast('Failed to delete event.', 'error');
+            if (confirm('Delete this event?')) {
+                if (window.db && window.dbFns) {
+                    try {
+                        const { doc, deleteDoc } = window.dbFns;
+                        await deleteDoc(doc(window.db, "events", id));
+                        showToast('Event deleted.');
+                    } catch (error) {
+                        console.error("Error deleting event: ", error);
+                        showToast('Failed to delete event.', 'error');
+                    }
                 }
             }
         }
