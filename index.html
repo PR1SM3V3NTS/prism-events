@@ -838,10 +838,15 @@ const firebaseConfig = {
         }
 
         async function deleteEvent(id) {
-            if (confirm('Delete this event?')) {
-                if (window.db && window.dbFns) {
-                    await window.dbFns.deleteDoc(window.dbFns.doc(window.db, "events", id));
-                    showToast('Event deleted.');
+    if (confirm('Delete this event?')) {
+        if (window.db && window.dbFns) {
+            try {
+                const { doc, deleteDoc } = window.dbFns;
+                await deleteDoc(doc(window.db, "events", id));
+                showToast('Event deleted.');
+            } catch (error) {
+                console.error("Error deleting event: ", error);
+                showToast('Failed to delete event.', 'error');
                 }
             }
         }
