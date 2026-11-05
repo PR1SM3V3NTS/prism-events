@@ -532,7 +532,7 @@
                 onSnapshot(collection(window.db, "events"), (snapshot) => {
                     events = [];
                     snapshot.forEach((docSnap) => {
-                        events.push({ id: docSnap.id, ...docSnap.data() });
+                        events.push({ ...docSnap.data(), id: docSnap.id });
                     });
                     if (events.length === 0) {
                         seedDefaultEvents();
@@ -545,7 +545,7 @@
                 onSnapshot(collection(window.db, "rsvps"), (snapshot) => {
                     rsvpsList = [];
                     snapshot.forEach((docSnap) => {
-                        rsvpsList.push({ id: docSnap.id, ...docSnap.data() });
+                        rsvpsList.push({ ...docSnap.data(), id: docSnap.id });
                     });
                     renderAdminRsvps();
                 });
